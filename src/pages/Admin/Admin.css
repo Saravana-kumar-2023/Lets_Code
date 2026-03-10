@@ -1,0 +1,216 @@
+/* ===== ADMIN PAGE ===== */
+.admin-page {
+  padding: var(--space-2xl) 0 var(--space-4xl);
+}
+
+.admin-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.admin-header h1 {
+  margin-bottom: var(--space-xs);
+}
+
+.admin-header p {
+  color: var(--text-light);
+}
+
+/* Admin Tabs */
+.admin-tabs {
+  display: flex;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xl);
+  overflow-x: auto;
+  border-bottom: 2px solid var(--border-light);
+}
+
+.admin-tab {
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  border-bottom: 3px solid transparent;
+  transition: var(--transition);
+  white-space: nowrap;
+  cursor: pointer;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.admin-tab:hover { color: var(--primary); }
+.admin-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+/* Admin Stats */
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.admin-stat-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  border: 1px solid var(--border-light);
+  text-align: center;
+}
+
+.admin-stat-card h3 {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.admin-stat-card p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Admin Table */
+.admin-table-wrapper {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+}
+
+.admin-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.admin-table-header h3 {
+  font-size: 1.05rem;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border-light);
+  background: var(--bg);
+}
+
+.admin-table td {
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table tr:hover td {
+  background: var(--primary-bg);
+}
+
+.admin-table-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.admin-btn-edit {
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--primary-bg);
+  color: var(--primary);
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+}
+
+.admin-btn-edit:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.admin-btn-delete {
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(225, 112, 85, 0.08);
+  color: var(--error);
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+}
+
+.admin-btn-delete:hover {
+  background: var(--error);
+  color: white;
+}
+
+/* Admin Form */
+.admin-form-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: var(--space-md);
+}
+
+.admin-form-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  max-width: 560px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+}
+
+.admin-form-card h3 {
+  margin-bottom: var(--space-xl);
+}
+
+.admin-form-actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: flex-end;
+  margin-top: var(--space-xl);
+}
+
+@media (max-width: 1024px) {
+  .admin-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .admin-table {
+    min-width: 600px;
+  }
+}
