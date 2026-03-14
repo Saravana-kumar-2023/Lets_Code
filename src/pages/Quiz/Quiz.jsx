@@ -120,7 +120,7 @@ const Quiz = () => {
       <div className="quiz-page page-enter">
         <div className="container">
           <div className="empty-state" style={{ padding: '80px 0' }}>
-            <h2>No quiz selected</h2>
+            <h2>OOPS Go to Language...</h2>
             <p style={{ margin: '12px 0 24px' }}>
               Please choose a language and topic first to start the quiz.
             </p>

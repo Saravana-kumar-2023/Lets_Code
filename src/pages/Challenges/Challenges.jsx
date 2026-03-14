@@ -96,7 +96,7 @@ const Challenges = () => {
       <div className="challenges-page page-enter">
         <div className="container">
           <div className="empty-state" style={{ padding: '80px 0' }}>
-            <h2>No challenge topic selected</h2>
+            <h2>OOPS Challenge topic are not selected..!!!</h2>
             <p style={{ margin: '12px 0 24px' }}>
               Please choose a language and topic first to start solving challenges.
             </p>

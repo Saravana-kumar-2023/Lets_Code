@@ -84,11 +84,6 @@ const Login = () => {
           <div className="auth-footer">
             Don't have an account? <Link to="/register">Sign Up</Link>
           </div>
-
-          <div className="auth-demo-info">
-            <strong>Test Admin Account:</strong><br />
-            admin@letscode.com / Admin@123
-          </div>
         </div>
       </div>
     </div>

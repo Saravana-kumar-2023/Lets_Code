@@ -28,7 +28,11 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await authAPI.login({ email, password });
+      const response = await authAPI.login({
+        email: email.trim().toLowerCase(),
+        password,
+      });
+
       const data = response.data;
 
       const loggedInUser = {
@@ -43,20 +47,27 @@ export const AuthProvider = ({ children }) => {
 
       return loggedInUser;
     } catch (error) {
+      const backendMessage =
+        error.response?.data?.message ||
+        error.response?.data ||
+        "Login failed";
+
       throw new Error(
-        error.response?.data?.message || "Invalid email or password"
+        typeof backendMessage === "string" ? backendMessage : "Login failed"
       );
     }
   };
 
-  const register = async (name, email, password) => {
+  const register = async (userData) => {
     try {
-      const response = await authAPI.register({
-        fullName: name,
-        email,
-        password,
-      });
+      const payload = {
+        fullName: userData.fullName.trim(),
+        username: userData.username.trim(),
+        email: userData.email.trim().toLowerCase(),
+        password: userData.password,
+      };
 
+      const response = await authAPI.register(payload);
       const data = response.data;
 
       const newUser = {
@@ -71,9 +82,11 @@ export const AuthProvider = ({ children }) => {
 
       return newUser;
     } catch (error) {
-      throw new Error(
-        error.response?.data?.message || "Registration failed"
-      );
+      if (error.response?.data) {
+        throw error;
+      }
+
+      throw new Error("Registration failed");
     }
   };
 
